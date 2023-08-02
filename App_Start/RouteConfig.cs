@@ -16,8 +16,15 @@ namespace WebApplication_DotNet_MVC
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "About", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional}
             );
+
+
+            //routes.MapRoute(
+            //    name: "Default",
+            //    url: "{controller}/{action}/{id}/{abc}",
+            //    defaults: new { controller = "Home", action = "About", id = UrlParameter.Optional, abc = UrlParameter.Optional }
+            //);
         }
     }
 }
