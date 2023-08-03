@@ -13,6 +13,13 @@
             <label>Firstname:</label>
             <input type="text" />
         </div>
+        <div class="row">
+            @ViewBag.Message
+
+        </div>
+        <div class="row">
+            @ViewData["Message"]
+        </div>
 
         <div class="row">
             <label>Firstname:</label>
@@ -25,6 +32,21 @@
             @Html.TextBoxFor(m => m.FirstName)
             @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
         </div>
+
+        <div class="row">
+            @Html.Label("Gender")
+            @Html.DropDownListFor(m => m.ListOfGender, new SelectList(Model.ListOfGender, "value", "Key"))
+            @Html.ValidationMessageFor(m => m.ListOfGender, "", new { @class = "text-danger" })
+
+
+
+            @*<select>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="3">Other</option>
+                </select>*@
+        </div>
+
         <button type="submit">Validate</button>
     }
 </main>

@@ -11,7 +11,15 @@ namespace WebApplication_DotNet_MVC.Controllers
     {
         public ActionResult Index()
         {
-            return View("Index");
+            Employee employee = new Employee();
+
+
+            ViewBag.Message = "ViewBag - From Index Action";
+            ViewData["Message"] = employee.ListOfGender;
+
+            TempData["Message"] = "TempData - From Index Action ";
+
+            return View("Index", employee);
         }
 
         [HttpPost]
