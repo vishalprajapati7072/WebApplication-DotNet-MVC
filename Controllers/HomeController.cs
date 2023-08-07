@@ -11,15 +11,20 @@ namespace WebApplication_DotNet_MVC.Controllers
     {
         public ActionResult Index()
         {
-            Employee employee = new Employee();
+            Dictionary<string, string> genders = new Dictionary<string, string>
+            {
+                { "Male", "1" },
+                { "Female", "2" },
+                { "Other", "3" }
+            };
 
+            ViewBag.Genders = genders;
 
-            ViewBag.Message = "ViewBag - From Index Action";
-            ViewData["Message"] = employee.ListOfGender;
+            ViewData["Genders"] = genders;
 
-            TempData["Message"] = "TempData - From Index Action ";
+            TempData["Genders"] = genders;
 
-            return View("Index", employee);
+            return View("Index", new Employee());
         }
 
         [HttpPost]
@@ -29,13 +34,18 @@ namespace WebApplication_DotNet_MVC.Controllers
             {
 
             }
-            ViewBag.Message = "Your application description page.";
+
+            var viewBag = ViewBag.Genders;
+            var viewData = ViewData["Genders"];
+            var tempData = TempData.Peek("Genders");
+            TempData.Keep("Genders");
 
             return View();
         }
 
-        public ActionResult Contact(int id)
+        public ActionResult Contact()
         {
+            var tempData = TempData.Peek("Genders");
             ViewBag.Message = "Your contact page.";
 
             return View();

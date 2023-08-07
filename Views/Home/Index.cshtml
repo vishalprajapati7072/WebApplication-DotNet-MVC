@@ -9,22 +9,22 @@
     {
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="row">
-            <label>Firstname:</label>
-            <input type="text" />
-        </div>
-        <div class="row">
-            @ViewBag.Message
+        @*<div class="row">
+                <label>Firstname:</label>
+                <input type="text" />
+            </div>
+            <div class="row">
+                @ViewBag.Message
 
-        </div>
-        <div class="row">
-            @ViewData["Message"]
-        </div>
+            </div>
+            <div class="row">
+                @ViewData["Message"]
+            </div>
 
-        <div class="row">
-            <label>Firstname:</label>
-            @Html.TextBox("Test")
-        </div>
+            <div class="row">
+                <label>Firstname:</label>
+                @Html.TextBox("Test")
+            </div>*@
 
 
         <div class="row">
@@ -34,17 +34,15 @@
         </div>
 
         <div class="row">
+            @Html.LabelFor(m => m.LastName)
+            @Html.TextBoxFor(m => m.LastName)
+            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="row">
             @Html.Label("Gender")
-            @Html.DropDownListFor(m => m.ListOfGender, new SelectList(Model.ListOfGender, "value", "Key"))
-            @Html.ValidationMessageFor(m => m.ListOfGender, "", new { @class = "text-danger" })
-
-
-
-            @*<select>
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                    <option value="3">Other</option>
-                </select>*@
+            @Html.DropDownListFor(m => m.Gender, new SelectList(ViewData["Genders"] as Dictionary<string, string>, "value", "key"))
+            @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
         </div>
 
         <button type="submit">Validate</button>

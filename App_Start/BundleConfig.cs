@@ -26,7 +26,8 @@ namespace WebApplication_DotNet_MVC
                       "~/Content/bootstrap.css",
                       "~/Content/abc.css",
                       "~/Content/xyz.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/custom-css.css"));
         }
     }
 }
