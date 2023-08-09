@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using WebApplication_DotNet_MVC.Models;
 
@@ -25,6 +22,29 @@ namespace WebApplication_DotNet_MVC.Controllers
             TempData["Genders"] = genders;
 
             return View("Index", new Employee());
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        public ActionResult List()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult RenderGrid()
+        {
+            List<Employee> list = new List<Employee>();
+
+            list.Add(new Employee() { Id = 1, FirstName = "Jason", LastName = "Mark", Gender = 1 });
+            list.Add(new Employee() { Id = 2, FirstName = "New", LastName = "Data", Gender = 1 });
+            list.Add(new Employee() { Id = 3, FirstName = "Steven", LastName = "Smith", Gender = 2 });
+            list.Add(new Employee() { Id = 4, FirstName = "Mark", LastName = "Wood", Gender = 2 });
+
+            return PartialView("_GridPartial", list);
         }
 
         [HttpPost]
