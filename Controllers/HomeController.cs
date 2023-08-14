@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Web.Mvc;
+using WebApplication_DotNet_MVC.Filters;
 using WebApplication_DotNet_MVC.Models;
 
 namespace WebApplication_DotNet_MVC.Controllers
 {
+   
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -14,6 +17,17 @@ namespace WebApplication_DotNet_MVC.Controllers
                 { "Female", "2" },
                 { "Other", "3" }
             };
+
+            ArrayList array = new ArrayList();
+            array.Add("1");
+            array.Add(2);
+            array.Add(genders);
+
+            //List<string> lst = new List<string>();
+            //lst.Add("asdasd");
+            //lst.Add(1);
+
+
 
             ViewBag.Genders = genders;
 
@@ -35,6 +49,7 @@ namespace WebApplication_DotNet_MVC.Controllers
         }
 
         [HttpGet]
+        [CustomActionFilter]
         public ActionResult RenderGrid()
         {
             List<Employee> list = new List<Employee>();
@@ -63,6 +78,8 @@ namespace WebApplication_DotNet_MVC.Controllers
             return View();
         }
 
+        [Authorize]
+        [CustomAuthFilter]
         public ActionResult Contact()
         {
             var tempData = TempData.Peek("Genders");
@@ -70,5 +87,7 @@ namespace WebApplication_DotNet_MVC.Controllers
 
             return View();
         }
+
+
     }
 }

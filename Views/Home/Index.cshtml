@@ -42,10 +42,12 @@
             url: '/Home/RenderGrid',
             type: 'Get',
             success: function (response) {
+                debugger;
                 console.log($("#vishal"));
                 $(".emp-grid").html(response);
             },
             error: function (error) {
+                debugger;
                 console.log(error);
             }
         });

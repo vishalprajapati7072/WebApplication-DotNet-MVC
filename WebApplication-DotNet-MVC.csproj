@@ -122,6 +122,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Filters\CustomActionFilter.cs" />
+    <Compile Include="Filters\CustomAuthFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -188,6 +190,7 @@
     <Content Include="Views\Home\View.cshtml" />
     <Content Include="Views\Home\View1.cshtml" />
     <Content Include="Views\Home\_GridPartial.cshtml" />
+    <Content Include="Views\Home\View2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
